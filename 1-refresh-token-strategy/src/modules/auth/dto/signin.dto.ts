@@ -1,0 +1,13 @@
+import {
+    IsEmail,
+    IsString,
+} from "class-validator"
+
+/** Body đăng nhập — sau khi OK nhận access+refresh pair. (EN: Sign-in DTO.) */
+export class SignInDto {
+    @IsEmail()
+        email: string
+
+    @IsString()
+        password: string
+}

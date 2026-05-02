@@ -1,0 +1,23 @@
+import {
+    Module,
+} from "@nestjs/common"
+import {
+    TypeOrmModule,
+} from "@nestjs/typeorm"
+import {
+    User,
+} from "./user.entity"
+import {
+    UserController,
+} from "./user.controller"
+
+/**
+ * Feature module user + TypeORM repository registration.
+ * (EN: User feature module exporting TypeORM feature set.)
+ */
+@Module({
+    imports: [TypeOrmModule.forFeature([User])],
+    controllers: [UserController],
+    exports: [TypeOrmModule],
+})
+export class UserModule {}
