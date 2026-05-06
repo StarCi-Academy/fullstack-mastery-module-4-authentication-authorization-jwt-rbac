@@ -1,3 +1,7 @@
+﻿/**
+ * AppModule — dang ky cac thanh phan cua feature App.
+ * (EN: AppModule — registers components for App feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"
@@ -21,10 +25,7 @@ import {
     User,
 } from "./modules/user/user.entity"
 
-/**
- * Root module: Postgres + Auth + User routes cho demo refresh rotation/revocation.
- * (EN: Root wiring validated env, Postgres, auth and user modules.)
- */
+/** Root module â€” Postgres + Auth cho access/refresh JWT. (EN: Root wiring DB + auth.) */
 @Module({
     imports: [
         ConfigModule.forRoot({

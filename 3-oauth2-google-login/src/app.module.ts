@@ -1,3 +1,7 @@
+﻿/**
+ * AppModule — dang ky cac thanh phan cua feature App.
+ * (EN: AppModule — registers components for App feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"
@@ -18,7 +22,7 @@ import {
     User,
 } from "./modules/user/user.entity"
 
-/** Root module — Postgres + validated env + Google OAuth auth module. (EN: Root Nest module.) */
+/** Root module â€” Postgres + Google OAuth auth module. (EN: Root Nest module.) */
 @Module({
     imports: [
         ConfigModule.forRoot({

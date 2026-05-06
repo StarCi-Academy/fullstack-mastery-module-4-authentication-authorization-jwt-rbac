@@ -1,3 +1,7 @@
+﻿/**
+ * environment-variables — cau hinh Src.
+ * (EN: environment-variables — Src configuration.)
+ */
 import {
     Type,
 } from "class-transformer"
@@ -9,7 +13,7 @@ import {
 } from "class-validator"
 
 /**
- * Biến môi trường đã validate — đồng bộ với ConfigModule sau `validate`.
+ * Biáº¿n mÃ´i trÆ°á»ng Ä‘Ã£ validate â€” Ä‘á»“ng bá»™ vá»›i ConfigModule sau `validate`.
  * (EN: Validated env shape consumed by Nest ConfigModule.)
  */
 export class EnvironmentVariables {

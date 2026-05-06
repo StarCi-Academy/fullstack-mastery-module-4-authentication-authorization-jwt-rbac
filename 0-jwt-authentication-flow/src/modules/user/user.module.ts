@@ -1,3 +1,7 @@
+﻿/**
+ * UserModule — dang ky cac thanh phan cua feature User.
+ * (EN: UserModule — registers components for User feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"

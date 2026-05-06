@@ -1,3 +1,7 @@
+﻿/**
+ * Controller REST cho feature Admin.
+ * (EN: REST controller for Admin feature.)
+ */
 import {
     Controller,
     Get,
@@ -17,7 +21,7 @@ import {
 } from "../auth/jwt-auth.guard"
 
 /**
- * Namespace ví dụ chỉ ADMIN được vào sau guard chain Jwt → Roles.
+ * Namespace vÃ­ dá»¥ chá»‰ ADMIN Ä‘Æ°á»£c vÃ o sau guard chain Jwt â†’ Roles.
  * (EN: Sample admin-only controller illustrating guard ordering.)
  */
 @Controller("admin")

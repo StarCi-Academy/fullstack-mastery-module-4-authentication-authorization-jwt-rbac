@@ -1,3 +1,7 @@
+﻿/**
+ * AppModule — dang ky cac thanh phan cua feature App.
+ * (EN: AppModule — registers components for App feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"
@@ -43,7 +47,7 @@ import {
                 password: config.getOrThrow<string>("DATABASE_PASSWORD"),
                 database: config.getOrThrow<string>("DATABASE_NAME"),
                 entities: [User],
-                // synchronize chỉ cho demo local — production nên migration (EN: auto-sync OK for lesson DB only)
+                // synchronize chá»‰ cho demo local â€” production nÃªn migration (EN: auto-sync OK for lesson DB only)
                 synchronize: true,
             }),
         }),

@@ -1,3 +1,7 @@
+﻿/**
+ * Service xu ly logic nghiep vu cua Auth.
+ * (EN: Business logic service for Auth.)
+ */
 import {
     ConflictException,
     Injectable,
@@ -27,7 +31,7 @@ import {
 } from "./dto/signup.dto"
 
 /**
- * Credential signup/signin — JWT chứa `sub` + `role` để phục vụ RolesGuard.
+ * Credential signup/signin â€” JWT chá»©a `sub` + `role` Ä‘á»ƒ phá»¥c vá»¥ RolesGuard.
  * (EN: Issues JWT embedding role claims for downstream authorization.)
  */
 @Injectable()
@@ -39,9 +43,9 @@ export class AuthService {
     ) {}
 
     /**
-     * Cho phép optional `role` trên signup để seed admin trong demo — production phải khóa/không expose (EN: demo-only admin bootstrap).
+     * Cho phÃ©p optional `role` trÃªn signup Ä‘á»ƒ seed admin trong demo â€” production pháº£i khÃ³a/khÃ´ng expose (EN: demo-only admin bootstrap).
      *
-     * @param dto — Email/password và optional role override (EN: signup payload).
+     * @param dto â€” Email/password vÃ  optional role override (EN: signup payload).
      */
     async signUp(dto: SignUpDto) {
         const existing = await this.usersRepo.findOne({
@@ -68,10 +72,10 @@ export class AuthService {
     }
 
     /**
-     * Sau khi AuthN — đưa role vào JWT để không phải hit DB mỗi request AuthZ đơn giản (trade-off stale role).
+     * Sau khi AuthN â€” Ä‘Æ°a role vÃ o JWT Ä‘á»ƒ khÃ´ng pháº£i hit DB má»—i request AuthZ Ä‘Æ¡n giáº£n (trade-off stale role).
      * (EN: Signs JWT including role claim for guard checks without DB round-trip.)
      *
-     * @param dto — credential body (EN: sign-in payload).
+     * @param dto â€” credential body (EN: sign-in payload).
      */
     async signIn(dto: SignInDto) {
         const user = await this.usersRepo.findOne({

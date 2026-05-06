@@ -1,3 +1,7 @@
+﻿/**
+ * Entity TypeORM — thuc the User.
+ * (EN: TypeORM entity — User entity.)
+ */
 import {
     Column,
     Entity,
@@ -5,7 +9,7 @@ import {
 } from "typeorm"
 
 /**
- * Bảng người dùng credential-based — password luôn là bcrypt hash trong DB.
+ * Báº£ng ngÆ°á»i dÃ¹ng credential-based â€” password luÃ´n lÃ  bcrypt hash trong DB.
  * (EN: Credential user entity storing bcrypt hash only.)
  */
 @Entity({
@@ -20,7 +24,7 @@ export class User {
     })
         email: string
 
-    /** Hash bcrypt của password — không lưu plaintext (EN: bcrypt digest column). */
+    /** Hash bcrypt cá»§a password â€” khÃ´ng lÆ°u plaintext (EN: bcrypt digest column). */
     @Column()
         password: string
 }

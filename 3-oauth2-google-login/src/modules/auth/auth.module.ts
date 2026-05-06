@@ -1,3 +1,7 @@
+﻿/**
+ * AuthModule — dang ky cac thanh phan cua feature Auth.
+ * (EN: AuthModule — registers components for Auth feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"
@@ -30,7 +34,7 @@ import {
     GoogleStrategy,
 } from "./google.strategy"
 
-/** Passport session disabled — chỉ redirect OAuth stateless đủ cho demo JWT sau callback. (EN: Stateless OAuth wiring.) */
+/** Passport session disabled â€” chá»‰ redirect OAuth stateless Ä‘á»§ cho demo JWT sau callback. (EN: Stateless OAuth wiring.) */
 @Module({
     imports: [
         TypeOrmModule.forFeature([User]),

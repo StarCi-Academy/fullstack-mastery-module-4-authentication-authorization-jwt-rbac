@@ -1,3 +1,7 @@
+﻿/**
+ * Service xu ly logic nghiep vu cua Auth.
+ * (EN: Business logic service for Auth.)
+ */
 import {
     ConflictException,
     Injectable,
@@ -24,7 +28,7 @@ import {
 } from "./dto/signup.dto"
 
 /**
- * Đăng ký / đăng nhập và phát JWT access token (demo stateless auth).
+ * ÄÄƒng kÃ½ / Ä‘Äƒng nháº­p vÃ  phÃ¡t JWT access token (demo stateless auth).
  * (EN: Sign-up / sign-in and issue JWT access tokens for stateless auth.)
  */
 @Injectable()
@@ -36,12 +40,12 @@ export class AuthService {
     ) {}
 
     /**
-     * Tạo user mới sau khi hash mật khẩu; tránh trùng email.
+     * Táº¡o user má»›i sau khi hash máº­t kháº©u; trÃ¡nh trÃ¹ng email.
      * (EN: Persist user with bcrypt password hash; rejects duplicate emails.)
      *
-     * @param dto - Email + plain password từ client (EN: credentials from client body).
-     * @returns `{ id, email }` sau khi lưu DB (EN: created user id and email for 201 responses).
-     * @throws ConflictException — email đã tồn tại (EN: when email collides).
+     * @param dto - Email + plain password tá»« client (EN: credentials from client body).
+     * @returns `{ message }` pháº£n há»“i tá»‘i giáº£n sau khi lÆ°u DB (EN: minimal ack payload).
+     * @throws ConflictException â€” email Ä‘Ã£ tá»“n táº¡i (EN: when email collides).
      */
     async signUp(dto: SignUpDto) {
         const existing = await this.usersRepo.findOne({
@@ -52,7 +56,7 @@ export class AuthService {
         if (existing) {
             throw new ConflictException("Email already registered")
         }
-        // Salt rounds cố định cho demo; production có thể tune theo policy (EN: fixed cost factor for bcrypt)
+        // Salt rounds cá»‘ Ä‘á»‹nh cho demo; production cÃ³ thá»ƒ tune theo policy (EN: fixed cost factor for bcrypt)
         const hash = await bcrypt.hash(dto.password,
             10)
         const saved = await this.usersRepo.save(this.usersRepo.create({
@@ -66,12 +70,12 @@ export class AuthService {
     }
 
     /**
-     * Xác thực email/password và ký JWT chứa `sub` (user id).
+     * XÃ¡c thá»±c email/password vÃ  kÃ½ JWT chá»©a `sub` (user id).
      * (EN: Validate credentials then sign JWT carrying subject user id.)
      *
      * @param dto - Email + password plaintext (EN: sign-in payload).
      * @returns `{ access_token }` JWT cho header Bearer (EN: bearer token string).
-     * @throws UnauthorizedException — sai user hoặc password (EN: invalid credential tuple).
+     * @throws UnauthorizedException â€” sai user hoáº·c password (EN: invalid credential tuple).
      */
     async signIn(dto: SignInDto) {
         const user = await this.usersRepo.findOne({
@@ -79,7 +83,7 @@ export class AuthService {
                 email: dto.email,
             },
         })
-        // Không tiết lộ user có tồn tại hay không trong message — chỉ generic error (EN: uniform error surface)
+        // KhÃ´ng tiáº¿t lá»™ user cÃ³ tá»“n táº¡i hay khÃ´ng trong message â€” chá»‰ generic error (EN: uniform error surface)
         if (!user || !(await bcrypt.compare(dto.password,
             user.password))) {
             throw new UnauthorizedException("Invalid credentials")

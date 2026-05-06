@@ -1,3 +1,7 @@
+﻿/**
+ * Guard bao ve route — jwt-auth.guard.
+ * (EN: Route guard — jwt-auth.guard.)
+ */
 import {
     Injectable,
 } from "@nestjs/common"
@@ -6,7 +10,7 @@ import {
 } from "@nestjs/passport"
 
 /**
- * Kích hoạt Passport strategy tên `jwt` cho route được annotate `@UseGuards`.
+ * KÃ­ch hoáº¡t Passport strategy tÃªn `jwt` cho route Ä‘Æ°á»£c annotate `@UseGuards`.
  * (EN: Activates registered Passport JWT strategy before controller handlers.)
  */
 @Injectable()

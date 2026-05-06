@@ -1,3 +1,7 @@
+﻿/**
+ * AuthModule — dang ky cac thanh phan cua feature Auth.
+ * (EN: AuthModule — registers components for Auth feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"

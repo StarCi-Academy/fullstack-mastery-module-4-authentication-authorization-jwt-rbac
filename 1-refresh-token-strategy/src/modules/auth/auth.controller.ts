@@ -1,3 +1,7 @@
+﻿/**
+ * Controller REST cho feature Auth.
+ * (EN: REST controller for Auth feature.)
+ */
 import {
     Body,
     Controller,
@@ -51,10 +55,7 @@ export class AuthController {
         return this.authService.signIn(body)
     }
 
-    /**
-     * `POST /auth/refresh` — Bearer refresh_token; RtGuard verify JWT rồi AuthService rotate.
-     * (EN: Refresh uses Authorization Bearer refresh JWT per lesson.)
-     */
+    /** Body chá»‰ chá»©a refresh_token â€” khÃ´ng dÃ¹ng Bearer refresh trong demo nÃ y. (EN: Refresh uses JSON body.) */
     @Post("refresh")
     @HttpCode(HttpStatus.OK)
     @UseGuards(RtGuard)
@@ -64,8 +65,8 @@ export class AuthController {
     }
 
     /**
-     * `POST /auth/logout` — Bearer access_token; xóa refreshTokenHash (revoke mọi RT).
-     * (EN: Requires access JWT to clear stored refresh hash.)
+     * Cáº§n access JWT Ä‘á»ƒ biáº¿t userId revoke refresh hash (AuthZ tá»‘i thiá»ƒu).
+     * (EN: Requires bearer access token so server knows whose refresh hash to clear.)
      */
     @Post("logout")
     @HttpCode(HttpStatus.OK)

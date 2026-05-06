@@ -1,3 +1,7 @@
+﻿/**
+ * AuthModule — dang ky cac thanh phan cua feature Auth.
+ * (EN: AuthModule — registers components for Auth feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"
@@ -28,7 +32,7 @@ import {
 } from "./jwt.strategy"
 
 /**
- * Gắn Passport JWT strategy + JwtModule để AuthService ký token.
+ * Gáº¯n Passport JWT strategy + JwtModule Ä‘á»ƒ AuthService kÃ½ token.
  * (EN: Wires Passport JWT strategy and JwtModule for signing.)
  */
 @Module({

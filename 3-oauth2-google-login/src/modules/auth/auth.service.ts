@@ -1,3 +1,7 @@
+﻿/**
+ * Service xu ly logic nghiep vu cua Auth.
+ * (EN: Business logic service for Auth.)
+ */
 import {
     Injectable,
 } from "@nestjs/common"
@@ -18,7 +22,7 @@ import type {
 } from "./google-profile"
 
 /**
- * Ánh xạ Google identity → row DB và phát JWT nội bộ sau OAuth callback.
+ * Ãnh xáº¡ Google identity â†’ row DB vÃ  phÃ¡t JWT ná»™i bá»™ sau OAuth callback.
  * (EN: Links Google profiles to DB rows and signs internal JWTs.)
  */
 @Injectable()
@@ -30,10 +34,10 @@ export class AuthService {
     ) {}
 
     /**
-     * Silent registration / linking: nếu email mới → INSERT; nếu đã có → enrich googleId/profile fields.
+     * Silent registration / linking: náº¿u email má»›i â†’ INSERT; náº¿u Ä‘Ã£ cÃ³ â†’ enrich googleId/profile fields.
      * (EN: Upserts local user linked to Google identity without separate signup form.)
      *
-     * @param payload — Fields extracted from Google OAuth profile (EN: normalized Google payload).
+     * @param payload â€” Fields extracted from Google OAuth profile (EN: normalized Google payload).
      * @returns Persisted User entity ready for JWT signing (EN: hydrated user row).
      */
     async findOrCreateFromGoogle(payload: GoogleProfilePayload): Promise<User> {
@@ -71,10 +75,10 @@ export class AuthService {
     }
 
     /**
-     * Response callback khớp tài liệu bài học — JWT nội bộ + snapshot user cho demo browser.
-     * (EN: Lesson-shaped OAuth callback JSON with internal access_token.)
+     * PhÃ¡t JWT access token Ä‘Æ¡n giáº£n chá»‰ chá»©a `sub` sau OAuth â€” client Ä‘á»•i sang Bearer nhÆ° demo JWT flow.
+     * (EN: Issues JWT carrying internal user id post OAuth.)
      *
-     * @param user — Row đã có primary key sau OAuth handshake (EN: persisted user entity).
+     * @param user â€” Row Ä‘Ã£ cÃ³ primary key sau OAuth handshake (EN: persisted user entity).
      */
     async completeGoogleLogin(user: User) {
         const access_token = await this.jwtService.signAsync({

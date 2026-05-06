@@ -1,3 +1,7 @@
+﻿/**
+ * validate-env — cau hinh Src.
+ * (EN: validate-env — Src configuration.)
+ */
 import {
     plainToInstance,
 } from "class-transformer"
@@ -19,7 +23,7 @@ const defaults: Record<string, string> = {
 }
 
 /**
- * Gộp `.env` / process.env với default demo, validate class-validator rồi trả object cho ConfigModule.
+ * Gá»™p `.env` / process.env vá»›i default demo, validate class-validator rá»“i tráº£ object cho ConfigModule.
  * (EN: Merge env with lesson defaults and validate before Nest wires ConfigService.)
  */
 export function validateEnv(config: Record<string, unknown>): EnvironmentVariables {

@@ -1,9 +1,13 @@
+﻿/**
+ * DTO validate payload dang nhap.
+ * (EN: DTO validates sign-in payload.)
+ */
 import {
     IsEmail,
     IsString,
 } from "class-validator"
 
-/** Body đăng nhập — sau khi OK nhận access+refresh pair. (EN: Sign-in DTO.) */
+/** Body Ä‘Äƒng nháº­p â€” sau khi OK nháº­n access+refresh pair. (EN: Sign-in DTO.) */
 export class SignInDto {
     @IsEmail()
         email: string

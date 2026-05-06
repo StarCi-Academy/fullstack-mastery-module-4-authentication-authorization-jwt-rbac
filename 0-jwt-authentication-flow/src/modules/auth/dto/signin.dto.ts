@@ -1,9 +1,13 @@
+﻿/**
+ * DTO validate payload dang nhap.
+ * (EN: DTO validates sign-in payload.)
+ */
 import {
     IsEmail,
     IsString,
 } from "class-validator"
 
-/** Body đăng nhập — password plaintext chỉ tồn tại trong transit để bcrypt.compare. (EN: Sign-in DTO.) */
+/** Body Ä‘Äƒng nháº­p â€” password plaintext chá»‰ tá»“n táº¡i trong transit Ä‘á»ƒ bcrypt.compare. (EN: Sign-in DTO.) */
 export class SignInDto {
     @IsEmail()
         email: string

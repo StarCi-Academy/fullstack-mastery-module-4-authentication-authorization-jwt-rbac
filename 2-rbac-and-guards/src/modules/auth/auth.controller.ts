@@ -1,3 +1,7 @@
+﻿/**
+ * Controller REST cho feature Auth.
+ * (EN: REST controller for Auth feature.)
+ */
 import {
     Body,
     Controller,
@@ -15,7 +19,7 @@ import {
     SignUpDto,
 } from "./dto/signup.dto"
 
-/** `/auth/signup|signin` — không chứa route nhạy cảm RBAC (EN: authentication endpoints only.) */
+/** `/auth/signup|signin` â€” khÃ´ng chá»©a route nháº¡y cáº£m RBAC (EN: authentication endpoints only.) */
 @Controller("auth")
 export class AuthController {
     constructor(private readonly authService: AuthService) {}

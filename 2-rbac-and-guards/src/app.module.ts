@@ -1,3 +1,7 @@
+﻿/**
+ * AppModule — dang ky cac thanh phan cua feature App.
+ * (EN: AppModule — registers components for App feature.)
+ */
 import {
     Module,
 } from "@nestjs/common"
@@ -24,7 +28,7 @@ import {
     User,
 } from "./modules/user/user.entity"
 
-/** Root — Postgres + Auth + Admin resource RBAC. (EN: Root module for RBAC demo.) */
+/** Root â€” Postgres + Auth + Admin resource RBAC. (EN: Root module for RBAC demo.) */
 @Module({
     controllers: [AppController],
     imports: [

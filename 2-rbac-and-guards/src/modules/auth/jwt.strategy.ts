@@ -1,3 +1,7 @@
+﻿/**
+ * Passport strategy — jwt.strategy.
+ * (EN: Passport strategy — jwt.strategy.)
+ */
 import {
     Injectable,
 } from "@nestjs/common"
@@ -15,11 +19,11 @@ import {
     Role,
 } from "../../common/role.enum"
 
-/** JWT payload sau verify — chứa subject và role để downstream RBAC (EN: JWT claims incl. role.) */
+/** JWT payload sau verify â€” chá»©a subject vÃ  role Ä‘á»ƒ downstream RBAC (EN: JWT claims incl. role.) */
 export type JwtPayload = { sub: number; role: Role };
 
 /**
- * passport-jwt đọc Bearer token và expose `{ userId, role }` cho middleware/controller chain.
+ * passport-jwt Ä‘á»c Bearer token vÃ  expose `{ userId, role }` cho middleware/controller chain.
  * (EN: Validates JWT and attaches normalized user info.)
  */
 @Injectable()
@@ -33,8 +37,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     /**
-     * @param payload — Claims verified by passport-jwt (EN: verified JWT payload).
-     * @returns Object merged vào `req.user` cho RolesGuard đọc `role` (EN: normalized req.user).
+     * @param payload â€” Claims verified by passport-jwt (EN: verified JWT payload).
+     * @returns Object merged vÃ o `req.user` cho RolesGuard Ä‘á»c `role` (EN: normalized req.user).
      */
     validate(payload: JwtPayload) {
         return {

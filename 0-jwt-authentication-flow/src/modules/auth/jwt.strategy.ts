@@ -1,3 +1,7 @@
+﻿/**
+ * Passport strategy — jwt.strategy.
+ * (EN: Passport strategy — jwt.strategy.)
+ */
 import {
     Injectable,
 } from "@nestjs/common"
@@ -12,11 +16,11 @@ import {
     Strategy,
 } from "passport-jwt"
 
-/** Payload JWT sau khi verify — chỉ chứa subject user id trong demo này. (EN: Verified JWT payload shape.) */
+/** Payload JWT sau khi verify â€” chá»‰ chá»©a subject user id trong demo nÃ y. (EN: Verified JWT payload shape.) */
 export type JwtPayload = { sub: number };
 
 /**
- * passport-jwt strategy: đọc Bearer token, verify signature & expiry.
+ * passport-jwt strategy: Ä‘á»c Bearer token, verify signature & expiry.
  * (EN: passport-jwt strategy extracting Bearer tokens.)
  */
 @Injectable()
@@ -30,11 +34,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     /**
-     * Chuẩn hoá `req.user` cho các guard/controller phía sau.
+     * Chuáº©n hoÃ¡ `req.user` cho cÃ¡c guard/controller phÃ­a sau.
      * (EN: Normalize request user attached after successful JWT verification.)
      *
-     * @param payload — Claims đã decode (EN: decoded JWT claims).
-     * @returns `{ userId }` để guard đính vào request (EN: minimal user shape on request).
+     * @param payload â€” Claims Ä‘Ã£ decode (EN: decoded JWT claims).
+     * @returns `{ userId }` Ä‘á»ƒ guard Ä‘Ã­nh vÃ o request (EN: minimal user shape on request).
      */
     validate(payload: JwtPayload) {
         return {
