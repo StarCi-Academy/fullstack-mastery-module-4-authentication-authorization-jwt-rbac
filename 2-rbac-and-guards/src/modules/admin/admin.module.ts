@@ -1,5 +1,5 @@
 ﻿/**
- * AdminModule — dang ky cac thanh phan cua feature Admin.
+ * AdminModule — đăng ký các thành phần của feature Admin.
  * (EN: AdminModule — registers components for Admin feature.)
  */
 import {

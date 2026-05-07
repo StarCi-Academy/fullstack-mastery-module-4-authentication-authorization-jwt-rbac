@@ -1,5 +1,5 @@
 ﻿/**
- * DTO validate payload dang ky.
+ * DTO validate payload đăng ký.
  * (EN: DTO validates sign-up payload.)
  */
 import {

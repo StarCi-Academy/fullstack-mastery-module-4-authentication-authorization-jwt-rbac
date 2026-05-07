@@ -1,5 +1,5 @@
 ﻿/**
- * AppModule — dang ky cac thanh phan cua feature App.
+ * AppModule — đăng ký các thành phần của feature App.
  * (EN: AppModule — registers components for App feature.)
  */
 import {

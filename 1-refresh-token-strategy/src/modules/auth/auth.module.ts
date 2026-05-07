@@ -1,5 +1,5 @@
 ﻿/**
- * AuthModule — dang ky cac thanh phan cua feature Auth.
+ * AuthModule — đăng ký các thành phần của feature Auth.
  * (EN: AuthModule — registers components for Auth feature.)
  */
 import {
