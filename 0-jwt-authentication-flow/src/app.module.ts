@@ -49,4 +49,4 @@ import { appConfig, databaseConfig, jwtConfig } from "./config"
         UserModule,
     ],
 })
-export class AppModule {}
+export class AppModule { }
