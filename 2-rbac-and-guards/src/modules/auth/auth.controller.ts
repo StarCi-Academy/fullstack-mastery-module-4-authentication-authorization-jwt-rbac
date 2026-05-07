@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Controller REST cho feature Auth.
  * (EN: REST controller for Auth feature.)
  */
@@ -14,10 +14,8 @@ import {
 } from "./auth.service"
 import {
     SignInDto,
-} from "./dto/signin.dto"
-import {
     SignUpDto,
-} from "./dto/signup.dto"
+} from "./dto"
 
 /** `/auth/signup|signin` — không chứa route nhạy cảm RBAC (EN: authentication endpoints only.) */
 @Controller("auth")

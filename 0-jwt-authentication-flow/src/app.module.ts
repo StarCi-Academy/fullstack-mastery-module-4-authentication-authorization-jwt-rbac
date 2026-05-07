@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AppModule — đăng ký các thành phần của feature App.
  * (EN: AppModule — registers components for App feature.)
  */
@@ -14,14 +14,13 @@ import {
 } from "@nestjs/typeorm"
 import {
     AuthModule,
-} from "./modules/auth/auth.module"
-import {
     UserModule,
-} from "./modules/user/user.module"
+} from "./modules"
 import {
-    User,
-} from "./modules/user/user.entity"
-import { appConfig, databaseConfig, jwtConfig } from "./config"
+    appConfig,
+    databaseConfig,
+    jwtConfig,
+} from "./config"
 
 /**
  * Root module: Postgres + Auth + User routes cho demo JWT.
@@ -40,7 +39,7 @@ import { appConfig, databaseConfig, jwtConfig } from "./config"
                 username: config.get<string>("database.postgres.username"),
                 password: config.get<string>("database.postgres.password"),
                 database: config.get<string>("database.postgres.database"),
-                entities: [User],
+                autoLoadEntities: true,
                 // synchronize chỉ cho demo local — production nên migration (EN: auto-sync OK for lesson DB only)
                 synchronize: true,
             }),

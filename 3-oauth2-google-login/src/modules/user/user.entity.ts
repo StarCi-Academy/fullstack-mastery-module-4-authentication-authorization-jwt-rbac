@@ -1,5 +1,5 @@
-﻿/**
- * Entity TypeORM — thuc the User.
+/**
+ * Entity TypeORM — thực thể User.
  * (EN: TypeORM entity — User entity.)
  */
 import {
@@ -15,7 +15,7 @@ import {
 @Entity({
     name: "users",
 })
-export class User {
+export class UserEntity {
     @PrimaryGeneratedColumn()
         id: number
 

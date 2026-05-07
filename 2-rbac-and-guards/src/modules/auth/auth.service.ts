@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Service xu ly logic nghiep vu cua Auth.
  * (EN: Business logic service for Auth.)
  */
@@ -19,16 +19,14 @@ import {
 } from "typeorm"
 import {
     Role,
-} from "../../common/role.enum"
+} from "../../common"
 import {
-    User,
-} from "../user/user.entity"
+    UserEntity,
+} from "../user"
 import {
     SignInDto,
-} from "./dto/signin.dto"
-import {
     SignUpDto,
-} from "./dto/signup.dto"
+} from "./dto"
 
 /**
  * Credential signup/signin — JWT chứa `sub` + `role` để phục vụ RolesGuard.
@@ -37,8 +35,8 @@ import {
 @Injectable()
 export class AuthService {
     constructor(
-    @InjectRepository(User)
-    private readonly usersRepo: Repository<User>,
+    @InjectRepository(UserEntity)
+    private readonly usersRepo: Repository<UserEntity>,
     private readonly jwtService: JwtService,
     ) {}
 

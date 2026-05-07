@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Controller REST cho feature Admin.
  * (EN: REST controller for Admin feature.)
  */
@@ -8,20 +8,16 @@ import {
     UseGuards,
 } from "@nestjs/common"
 import {
-    Roles,
-} from "../../common/decorators/roles.decorator"
-import {
     Role,
-} from "../../common/role.enum"
-import {
+    Roles,
     RolesGuard,
-} from "../../common/guards/roles.guard"
+} from "../../common"
 import {
     JwtAuthGuard,
-} from "../auth/jwt-auth.guard"
+} from "../auth"
 
 /**
- * Namespace ví dụ chỉ ADMIN được vào sau guard chain Jwt â†’ Roles.
+ * Namespace ví dụ chỉ ADMIN được vào sau guard chain Jwt → Roles.
  * (EN: Sample admin-only controller illustrating guard ordering.)
  */
 @Controller("admin")

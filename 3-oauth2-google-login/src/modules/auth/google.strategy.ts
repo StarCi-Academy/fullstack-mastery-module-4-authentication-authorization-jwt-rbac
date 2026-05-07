@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Passport strategy — google.strategy.
  * (EN: Passport strategy — google.strategy.)
  */
@@ -43,7 +43,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy,
     }
 
     /**
-     * Passport gọi sau khi Google trả authorization — map Profile â†’ persisted User entity shape.
+     * Passport gọi sau khi Google trả authorization — map Profile → persisted User entity shape.
      * (EN: Validates profile contains email then upserts local user.)
      *
      * @param _accessToken — Không dùng trong demo nhưng giữ arity Passport (EN: unused OAuth access token).

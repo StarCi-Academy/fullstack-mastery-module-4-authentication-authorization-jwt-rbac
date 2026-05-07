@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AdminModule — đăng ký các thành phần của feature Admin.
  * (EN: AdminModule — registers components for Admin feature.)
  */
@@ -10,7 +10,7 @@ import {
 } from "./admin.controller"
 import {
     RolesGuard,
-} from "../../common/guards/roles.guard"
+} from "../../common"
 
 /** Module đăng ký RolesGuard như provider để Nest inject Reflector đúng scope demo. (EN: Admin feature module.) */
 @Module({

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Controller REST cho feature Auth.
  * (EN: REST controller for Auth feature.)
  */
@@ -13,19 +13,15 @@ import {
 } from "@nestjs/common"
 import {
     AtGuard,
-} from "../../common/guards/at.guard"
-import {
     RtGuard,
-} from "../../common/guards/rt.guard"
+} from "../../common"
 import {
     AuthService,
 } from "./auth.service"
 import {
     SignInDto,
-} from "./dto/signin.dto"
-import {
     SignUpDto,
-} from "./dto/signup.dto"
+} from "./dto"
 
 /**
  * REST `/auth/*` — signup/signin/refresh/logout theo luồng rotation + revocation trong bài học.
@@ -55,7 +51,7 @@ export class AuthController {
         return this.authService.signIn(body)
     }
 
-    /** Body chỉ chứa refresh_token — không dùng Bearer refresh trong demo nÃ y. (EN: Refresh uses JSON body.) */
+    /** Body chỉ chứa refresh_token — không dùng Bearer refresh trong demo này. (EN: Refresh uses JSON body.) */
     @Post("refresh")
     @HttpCode(HttpStatus.OK)
     @UseGuards(RtGuard)

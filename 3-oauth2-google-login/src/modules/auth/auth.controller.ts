@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Controller REST cho feature Auth.
  * (EN: REST controller for Auth feature.)
  */
@@ -15,11 +15,11 @@ import {
     AuthService,
 } from "./auth.service"
 import {
-    User,
-} from "../user/user.entity"
+    UserEntity,
+} from "../user"
 
 /**
- * Hai endpoint OAuth dance — không chứa body JSON; Passport điá»u hướng trình duyệt (EN: OAuth redirect endpoints.)
+ * Hai endpoint OAuth dance — không chứa body JSON; Passport điều hướng trình duyệt (EN: OAuth redirect endpoints.)
  */
 @Controller("auth")
 export class AuthController {
@@ -40,11 +40,11 @@ export class AuthController {
      * Callback URL đăng ký trên Google Cloud — sau validate strategy trả JWT JSON cho client/demo tooling.
      * (EN: OAuth callback issuing JSON token response.)
      *
-     * @param req — Express req có `user` lÃ  entity User sau validate() (EN: request carrying hydrated User).
+     * @param req — Express req có `user` là entity UserEntity sau validate() (EN: request carrying hydrated User).
      */
     @Get("google/callback")
     @UseGuards(AuthGuard("google"))
-    async googleCallback(@Req() req: { user: User }) {
+    async googleCallback(@Req() req: { user: UserEntity }) {
         return this.authService.completeGoogleLogin(req.user)
     }
 }

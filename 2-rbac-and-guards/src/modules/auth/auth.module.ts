@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AuthModule — đăng ký các thành phần của feature Auth.
  * (EN: AuthModule — registers components for Auth feature.)
  */
@@ -19,8 +19,8 @@ import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
-    User,
-} from "../user/user.entity"
+    UserEntity,
+} from "../user"
 import {
     AuthController,
 } from "./auth.controller"
@@ -34,10 +34,10 @@ import {
     JwtStrategy,
 } from "./jwt.strategy"
 
-/** Passport JWT + JwtModule export AuthService cho reuse nhá» trong demo (EN: Auth module wiring.) */
+/** Passport JWT + JwtModule export AuthService cho reuse nhỏ trong demo (EN: Auth module wiring.) */
 @Module({
     imports: [
-        TypeOrmModule.forFeature([User]),
+        TypeOrmModule.forFeature([UserEntity]),
         PassportModule.register({
             defaultStrategy: "jwt",
         }),

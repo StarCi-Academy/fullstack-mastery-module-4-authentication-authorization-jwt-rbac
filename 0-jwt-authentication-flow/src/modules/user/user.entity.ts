@@ -1,5 +1,5 @@
-﻿/**
- * Entity TypeORM — thuc the User.
+/**
+ * Entity TypeORM — thực thể User.
  * (EN: TypeORM entity — User entity.)
  */
 import {
@@ -9,13 +9,13 @@ import {
 } from "typeorm"
 
 /**
- * Bảng người dùng credential-based — password luôn lÃ  bcrypt hash trong DB.
+ * Bảng người dùng credential-based — password luôn là bcrypt hash trong DB.
  * (EN: Credential user entity storing bcrypt hash only.)
  */
 @Entity({
     name: "users",
 })
-export class User {
+export class UserEntity {
     @PrimaryGeneratedColumn()
         id: number
 

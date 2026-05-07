@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AppModule — đăng ký các thành phần của feature App.
  * (EN: AppModule — registers components for App feature.)
  */
@@ -12,19 +12,18 @@ import {
 import {
     AppController,
 } from "./app.controller"
-import { appConfig, databaseConfig, jwtConfig } from "./config"
+import {
+    appConfig,
+    databaseConfig,
+    jwtConfig,
+} from "./config"
 import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
     AdminModule,
-} from "./modules/admin/admin.module"
-import {
     AuthModule,
-} from "./modules/auth/auth.module"
-import {
-    User,
-} from "./modules/user/user.entity"
+} from "./modules"
 
 /** Root — Postgres + Auth + Admin resource RBAC. (EN: Root module for RBAC demo.) */
 @Module({
@@ -41,7 +40,7 @@ import {
                 username: config.get<string>("database.postgres.username"),
                 password: config.get<string>("database.postgres.password"),
                 database: config.get<string>("database.postgres.database"),
-                entities: [User],
+                autoLoadEntities: true,
                 synchronize: true,
             }),
         }),

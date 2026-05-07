@@ -14,8 +14,8 @@ import {
     Repository,
 } from "typeorm"
 import {
-    User,
-} from "../user/user.entity"
+    UserEntity,
+} from "../user"
 
 /** User credential demo (password) song song OAuth — idempotent theo email. (EN: Boot-time password user seed.) */
 @Injectable()
@@ -23,8 +23,8 @@ export class AdminSeedService implements OnModuleInit {
     private readonly logger = new Logger(AdminSeedService.name)
 
     constructor(
-    @InjectRepository(User)
-    private readonly usersRepo: Repository<User>,
+    @InjectRepository(UserEntity)
+    private readonly usersRepo: Repository<UserEntity>,
     private readonly config: ConfigService,
     ) {}
 

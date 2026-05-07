@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Controller REST cho feature Auth.
  * (EN: REST controller for Auth feature.)
  */
@@ -14,10 +14,8 @@ import {
 } from "./auth.service"
 import {
     SignInDto,
-} from "./dto/signin.dto"
-import {
     SignUpDto,
-} from "./dto/signup.dto"
+} from "./dto"
 
 /**
  * REST endpoints `/auth/*` cho luồng đăng ký và đăng nhập JWT.

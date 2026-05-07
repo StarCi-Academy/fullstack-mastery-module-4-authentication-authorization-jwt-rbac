@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Passport strategy — jwt.strategy.
  * (EN: Passport strategy — jwt.strategy.)
  */
@@ -16,7 +16,7 @@ import {
     Strategy,
 } from "passport-jwt"
 
-/** Payload JWT sau khi verify — chỉ chứa subject user id trong demo nÃ y. (EN: Verified JWT payload shape.) */
+/** Payload JWT sau khi verify — chỉ chứa subject user id trong demo này. (EN: Verified JWT payload shape.) */
 export type JwtPayload = { sub: number };
 
 /**

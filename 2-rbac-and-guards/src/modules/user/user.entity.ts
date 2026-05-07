@@ -1,5 +1,5 @@
-﻿/**
- * Entity TypeORM — thuc the User.
+/**
+ * Entity TypeORM — thực thể User.
  * (EN: TypeORM entity — User entity.)
  */
 import {
@@ -9,13 +9,13 @@ import {
 } from "typeorm"
 import {
     Role,
-} from "../../common/role.enum"
+} from "../../common"
 
 /** User có `role` để RolesGuard đối chiếu sau JwtAuthGuard. (EN: User row carrying RBAC role.) */
 @Entity({
     name: "users",
 })
-export class User {
+export class UserEntity {
     @PrimaryGeneratedColumn()
         id: number
 

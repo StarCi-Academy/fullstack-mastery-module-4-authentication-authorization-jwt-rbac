@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Controller REST cho feature User.
  * (EN: REST controller for User feature.)
  */
@@ -10,7 +10,7 @@ import {
 } from "@nestjs/common"
 import {
     JwtAuthGuard,
-} from "../auth/jwt-auth.guard"
+} from "../auth"
 
 /**
  * Routes ví dụ cho resource sau khi đã authenticated.

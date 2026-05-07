@@ -22,14 +22,12 @@ import {
     Repository,
 } from "typeorm"
 import {
-    User,
-} from "../user/user.entity"
+    UserEntity,
+} from "../user"
 import {
     SignInDto,
-} from "./dto/signin.dto"
-import {
     SignUpDto,
-} from "./dto/signup.dto"
+} from "./dto"
 
 /**
  * Access token ngắn hạn + refresh token JWT lưu hash trong DB để rotate/revoke.
@@ -38,13 +36,13 @@ import {
 @Injectable()
 export class AuthService {
     constructor(
-    @InjectRepository(User)
-    private readonly usersRepo: Repository<User>,
+    @InjectRepository(UserEntity)
+    private readonly usersRepo: Repository<UserEntity>,
     private readonly jwtService: JwtService,
     private readonly config: ConfigService,
     ) {}
 
-    /** Secret ký/verify access JWT — tách khá»i refresh để giảm blast radius nếu lộ một khóa. (EN: access-token signing secret.) */
+    /** Secret ký/verify access JWT — tách khỏi refresh để giảm blast radius nếu lộ một khóa. (EN: access-token signing secret.) */
     private accessSecret() {
         return process.env.JWT_ACCESS_SECRET ?? "access-secret"
     }
@@ -105,7 +103,7 @@ export class AuthService {
     }
 
     /**
-     * Rotation: verify refresh JWT + khớp hash DB â†’ phát cặp mới và ghi đè hash.
+     * Rotation: verify refresh JWT + khớp hash DB → phát cặp mới và ghi đè hash.
      * (EN: Refresh rotation verifies JWT signature/expiry then bcrypt hash equality.)
      *
      * @param dto — Raw refresh_token client gửi lại (EN: refresh token body).
@@ -158,7 +156,7 @@ export class AuthService {
      * @param user — Entity đã load id (EN: hydrated user row).
      * @returns `{ access_token, refresh_token }` plaintext refresh chỉ trả client một lần mỗi lần rotate (EN: token tuple).
      */
-    private async issueTokenPair(user: User) {
+    private async issueTokenPair(user: UserEntity) {
         const access_token = await this.jwtService.signAsync(
             {
                 sub: user.id,

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AuthModule — đăng ký các thành phần của feature Auth.
  * (EN: AuthModule — registers components for Auth feature.)
  */
@@ -19,8 +19,8 @@ import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
-    User,
-} from "../user/user.entity"
+    UserEntity,
+} from "../user"
 import {
     AdminSeedService,
 } from "./admin-seed.service"
@@ -37,7 +37,7 @@ import {
 /** Passport session disabled — chỉ redirect OAuth stateless đủ cho demo JWT sau callback. (EN: Stateless OAuth wiring.) */
 @Module({
     imports: [
-        TypeOrmModule.forFeature([User]),
+        TypeOrmModule.forFeature([UserEntity]),
         PassportModule.register({
             session: false,
         }),

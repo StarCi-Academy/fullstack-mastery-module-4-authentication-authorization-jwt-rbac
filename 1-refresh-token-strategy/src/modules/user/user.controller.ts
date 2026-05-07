@@ -6,7 +6,7 @@ import {
 } from "@nestjs/common"
 import {
     AtGuard,
-} from "../../common/guards/at.guard"
+} from "../../common"
 
 /**
  * Routes ví dụ cho resource sau khi đã authenticated (access JWT).

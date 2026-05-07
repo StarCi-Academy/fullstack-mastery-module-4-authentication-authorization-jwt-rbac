@@ -1,4 +1,4 @@
-﻿/**
+/**
  * UserModule — đăng ký các thành phần của feature User.
  * (EN: UserModule — registers components for User feature.)
  */
@@ -9,7 +9,7 @@ import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
-    User,
+    UserEntity,
 } from "./user.entity"
 import {
     UserController,
@@ -20,7 +20,7 @@ import {
  * (EN: User feature module exporting TypeORM feature set.)
  */
 @Module({
-    imports: [TypeOrmModule.forFeature([User])],
+    imports: [TypeOrmModule.forFeature([UserEntity])],
     controllers: [UserController],
     exports: [TypeOrmModule],
 })

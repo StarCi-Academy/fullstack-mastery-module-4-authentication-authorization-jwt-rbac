@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Passport strategy — jwt.strategy.
  * (EN: Passport strategy — jwt.strategy.)
  */
@@ -17,7 +17,7 @@ import {
 } from "passport-jwt"
 import {
     Role,
-} from "../../common/role.enum"
+} from "../../common"
 
 /** JWT payload sau verify — chứa subject và role để downstream RBAC (EN: JWT claims incl. role.) */
 export type JwtPayload = { sub: number; role: Role };

@@ -5,7 +5,7 @@ import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
-    User,
+    UserEntity,
 } from "./user.entity"
 import {
     UserController,
@@ -16,7 +16,7 @@ import {
  * (EN: User feature module with sample protected route.)
  */
 @Module({
-    imports: [TypeOrmModule.forFeature([User])],
+    imports: [TypeOrmModule.forFeature([UserEntity])],
     controllers: [UserController],
     exports: [TypeOrmModule],
 })

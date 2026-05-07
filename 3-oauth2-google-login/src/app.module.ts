@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AppModule — đăng ký các thành phần của feature App.
  * (EN: AppModule — registers components for App feature.)
  */
@@ -9,16 +9,17 @@ import {
     ConfigModule,
     ConfigService,
 } from "@nestjs/config"
-import { appConfig, databaseConfig, jwtConfig } from "./config"
+import {
+    appConfig,
+    databaseConfig,
+    jwtConfig,
+} from "./config"
 import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
     AuthModule,
-} from "./modules/auth/auth.module"
-import {
-    User,
-} from "./modules/user/user.entity"
+} from "./modules"
 
 /** Root module — Postgres + Google OAuth auth module. (EN: Root Nest module.) */
 @Module({
@@ -34,7 +35,7 @@ import {
                 username: config.get<string>("database.postgres.username"),
                 password: config.get<string>("database.postgres.password"),
                 database: config.get<string>("database.postgres.database"),
-                entities: [User],
+                autoLoadEntities: true,
                 synchronize: true,
             }),
         }),

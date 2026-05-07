@@ -15,10 +15,10 @@ export interface DatabaseConfig {
 export const databaseConfig = registerAs("database",
     (): DatabaseConfig => ({
         postgres: {
-            host: process.env.DATABASE_HOST ?? "localhost",
-            port: Number(process.env.DATABASE_PORT) || 5432,
-            username: process.env.DATABASE_USER ?? "starci_user",
-            password: process.env.DATABASE_PASSWORD ?? "starci_password",
-            database: process.env.DATABASE_NAME ?? "starci_db",
+            host: process.env.POSTGRES_HOST ?? "localhost",
+            port: Number(process.env.POSTGRES_PORT) || 5432,
+            username: process.env.POSTGRES_USER ?? "starci_user",
+            password: process.env.POSTGRES_PASSWORD ?? "starci_password",
+            database: process.env.POSTGRES_DB ?? "starci_db",
         },
     }))
