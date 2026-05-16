@@ -10,8 +10,7 @@ import {
 } from "@nestjs/common"
 import {
     JwtAuthGuard,
-} from "../auth"
-
+} from "../auth/jwt-auth.guard"
 /**
  * Routes ví dụ cho resource sau khi đã authenticated.
  * (EN: Sample protected user routes requiring JWT.)

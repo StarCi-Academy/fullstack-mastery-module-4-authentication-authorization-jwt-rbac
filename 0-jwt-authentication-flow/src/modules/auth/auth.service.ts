@@ -19,7 +19,7 @@ import {
 } from "typeorm"
 import {
     UserEntity,
-} from "../user"
+} from "../../entities"
 import {
     SignInDto,
     SignUpDto,
@@ -54,12 +54,13 @@ export class AuthService {
         if (existing) {
             throw new ConflictException("Email already registered")
         }
-        // Salt rounds cố định cho demo; production có thể tune theo policy (EN: fixed cost factor for bcrypt)
         const hash = await bcrypt.hash(dto.password,
             10)
         const saved = await this.usersRepo.save(this.usersRepo.create({
             email: dto.email,
-            password: hash,
+            credential: {
+                password: hash,
+            },
         }))
         return {
             id: saved.id,
@@ -80,10 +81,12 @@ export class AuthService {
             where: {
                 email: dto.email,
             },
+            relations: {
+                credential: true,
+            },
         })
-        // Không tiết lộ user có tồn tại hay không trong message — chỉ generic error (EN: uniform error surface)
-        if (!user || !(await bcrypt.compare(dto.password,
-            user.password))) {
+        if (!user?.credential || !(await bcrypt.compare(dto.password,
+            user.credential.password))) {
             throw new UnauthorizedException("Invalid credentials")
         }
         return {

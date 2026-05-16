@@ -9,19 +9,25 @@ import {
     TypeOrmModule,
 } from "@nestjs/typeorm"
 import {
+    UserCredentialEntity,
     UserEntity,
-} from "./user.entity"
+} from "../../entities"
+import {
+    AuthModule,
+} from "../auth/auth.module"
 import {
     UserController,
 } from "./user.controller"
 
 /**
- * Feature module user + TypeORM repository registration.
- * (EN: User feature module exporting TypeORM feature set.)
+ * Feature module user — import AuthModule cho JwtAuthGuard, không import barrel auth.
+ * (EN: User feature module; AuthModule import avoids circular barrel re-exports.)
  */
 @Module({
-    imports: [TypeOrmModule.forFeature([UserEntity])],
+    imports: [
+        TypeOrmModule.forFeature([UserEntity, UserCredentialEntity]),
+        AuthModule,
+    ],
     controllers: [UserController],
-    exports: [TypeOrmModule],
 })
 export class UserModule {}
